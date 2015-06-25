@@ -1,21 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: tompatten
- * Date: 24/06/2015
- * Time: 09:35
- */
 
 namespace Juno\Writer;
 
 use Ddeboer\DataImport\Writer\WriterInterface;
 use GuzzleHttp\Client;
-use GuzzleHttp\Cookie\CookieJar;
 use GuzzleHttp\Cookie\FileCookieJar;
-use GuzzleHttp\Cookie\SessionCookieJar;
-use GuzzleHttp\Cookie\SetCookie;
 use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Psr7\Request;
 
 
 /**
@@ -53,7 +43,7 @@ class ApiWriter implements WriterInterface {
     public function writeItem(array $item)
     {
         if ($item['text']["endpoint"] != null) {
-            $this->cookieJar = new FileCookieJar($item['user_id']);
+            $this->cookieJar = new FileCookieJar("sessions/".$item['user_id']);
 
             try {
                 $response = $this->client->request($item['text']["requestType"], $item['text']["endpoint"], ['cookies' => $this->cookieJar]);

@@ -18,8 +18,7 @@ $arrayReader = new ArrayReader(array(array(
     "user_id" => "U06L7L5EV",
     "user_name" => "joeshiels",
     "command" => "/tracker",
-    "text" => 'issue add junointernal "TEST TITLE 1" "sample glfdjfdlg dgf hdkfg"',
-    //"text" => "login adamp-juno 1109900113ap",
+    "text" => 'issue add junointernal "TEST TITLE 1" "sample glfdjfdlg dgf hdkfg"'
 )));
 
 $arrayWriter = new ApiWriter();
